@@ -1,0 +1,42 @@
+abr 14 11:26:09 parrot systemd[1]: Starting ssh.service - OpenBSD Secure Shell server...
+abr 14 11:26:09 parrot sshd[4674]: Server listening on 0.0.0.0 port 22.
+abr 14 11:26:09 parrot sshd[4674]: Server listening on :: port 22.
+abr 14 11:26:09 parrot systemd[1]: Started ssh.service - OpenBSD Secure Shell server.
+abr 14 11:30:08 parrot sshd-session[4999]: Connection closed by ::1 port 60830 [preauth]
+abr 14 11:30:25 parrot unix_chkpwd[5008]: password check failed for user (gustavo)
+abr 14 11:30:25 parrot sshd-session[5006]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1  user=gustavo
+abr 14 11:30:25 parrot sshd-session[5006]: pam_winbind(sshd:auth): getting password (0x00000388)
+abr 14 11:30:25 parrot sshd-session[5006]: pam_winbind(sshd:auth): pam_get_item returned a password
+abr 14 11:30:25 parrot sshd-session[5006]: pam_winbind(sshd:auth): request wbcLogonUser failed: WBC_ERR_WINBIND_NOT_AVAILABLE, PAM error: PAM_AUTHINFO_UNAVAIL (9)!
+abr 14 11:30:25 parrot sshd-session[5006]: pam_winbind(sshd:auth): internal module error (retval = PAM_AUTHINFO_UNAVAIL(9), user = 'gustavo')
+abr 14 11:30:27 parrot sshd-session[5006]: Failed password for gustavo from ::1 port 36102 ssh2
+abr 14 11:30:33 parrot unix_chkpwd[5009]: password check failed for user (gustavo)
+abr 14 11:30:33 parrot sshd-session[5006]: pam_winbind(sshd:auth): getting password (0x00000388)
+abr 14 11:30:33 parrot sshd-session[5006]: pam_winbind(sshd:auth): pam_get_item returned a password
+abr 14 11:30:33 parrot sshd-session[5006]: pam_winbind(sshd:auth): request wbcLogonUser failed: WBC_ERR_WINBIND_NOT_AVAILABLE, PAM error: PAM_AUTHINFO_UNAVAIL (9)!
+abr 14 11:30:33 parrot sshd-session[5006]: pam_winbind(sshd:auth): internal module error (retval = PAM_AUTHINFO_UNAVAIL(9), user = 'gustavo')
+abr 14 11:30:35 parrot sshd-session[5006]: Failed password for gustavo from ::1 port 36102 ssh2
+abr 14 11:30:54 parrot unix_chkpwd[5010]: password check failed for user (gustavo)
+abr 14 11:30:54 parrot sshd-session[5006]: pam_winbind(sshd:auth): getting password (0x00000388)
+abr 14 11:30:54 parrot sshd-session[5006]: pam_winbind(sshd:auth): pam_get_item returned a password
+abr 14 11:30:54 parrot sshd-session[5006]: pam_winbind(sshd:auth): request wbcLogonUser failed: WBC_ERR_WINBIND_NOT_AVAILABLE, PAM error: PAM_AUTHINFO_UNAVAIL (9)!
+abr 14 11:30:54 parrot sshd-session[5006]: pam_winbind(sshd:auth): internal module error (retval = PAM_AUTHINFO_UNAVAIL(9), user = 'gustavo')
+abr 14 11:30:56 parrot sshd-session[5006]: Failed password for gustavo from ::1 port 36102 ssh2
+abr 14 11:30:58 parrot sshd-session[5006]: Connection closed by authenticating user gustavo ::1 port 36102 [preauth]
+abr 14 11:30:58 parrot sshd-session[5006]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1  user=gustavo
+abr 14 11:47:15 parrot sshd-session[5287]: Invalid user user1 from ::1 port 42980
+abr 14 11:47:17 parrot sshd-session[5287]: pam_unix(sshd:auth): check pass; user unknown
+abr 14 11:47:17 parrot sshd-session[5287]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1
+abr 14 11:47:17 parrot sshd-session[5287]: pam_winbind(sshd:auth): getting password (0x00000388)
+abr 14 11:47:17 parrot sshd-session[5287]: pam_winbind(sshd:auth): pam_get_item returned a password
+abr 14 11:47:19 parrot sshd-session[5287]: Failed password for invalid user user1 from ::1 port 42980 ssh2
+abr 14 11:47:24 parrot sshd-session[5287]: pam_unix(sshd:auth): check pass; user unknown
+abr 14 11:47:24 parrot sshd-session[5287]: pam_winbind(sshd:auth): getting password (0x00000388)
+abr 14 11:47:24 parrot sshd-session[5287]: pam_winbind(sshd:auth): pam_get_item returned a password
+abr 14 11:47:26 parrot sshd-session[5287]: Failed password for invalid user user1 from ::1 port 42980 ssh2
+abr 14 11:47:28 parrot sshd-session[5287]: pam_unix(sshd:auth): check pass; user unknown
+abr 14 11:47:28 parrot sshd-session[5287]: pam_winbind(sshd:auth): getting password (0x00000388)
+abr 14 11:47:28 parrot sshd-session[5287]: pam_winbind(sshd:auth): pam_get_item returned a password
+abr 14 11:47:30 parrot sshd-session[5287]: Failed password for invalid user user1 from ::1 port 42980 ssh2
+abr 14 11:47:32 parrot sshd-session[5287]: Connection closed by invalid user user1 ::1 port 42980 [preauth]
+abr 14 11:47:32 parrot sshd-session[5287]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=::1
