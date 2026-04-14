@@ -1,20 +1,23 @@
-# 🔐 Log Analyzer - Cybersecurity (SOC Project)
+# 🔐 SOC Log Monitor (Python)
 
-Projeto simples de análise de logs com foco em Segurança da Informação (Blue Team / SOC).
+Ferramenta de análise e monitoramento de logs de autenticação SSH em ambiente Linux.
 
-## 📌 Objetivo
-Simular a detecção de atividades suspeitas em logs de autenticação, como tentativas de força bruta.
+## 🚀 Funcionalidades
 
-## ⚙️ Funcionalidades
-- Leitura de arquivos de log
-- Identificação de falhas de login
-- Contagem de tentativas por IP
-- Geração de alertas para possíveis ataques
+- Detecção de tentativas de brute force
+- Identificação de usuários inválidos
+- Monitoramento em tempo real (journalctl)
+- Análise de arquivos de log
 
 ## 🛠️ Tecnologias
-- Python
-- Manipulação de arquivos
-- Estruturas de dados (dicionários)
 
-## 🚨 Exemplo de detecção
-Se um IP tiver 3 ou mais tentativas de login falhas:
+- Python
+- Linux
+- Regex
+- Journalctl
+
+## ▶️ Como usar
+
+### Analisar arquivo:
+```bash
+python3 analyzer.py --file logs.txt
