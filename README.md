@@ -1,13 +1,13 @@
-# 🔐 SOC Log Monitor (Python)
+# 🔐 SOC Log Monitor
 
-Ferramenta de análise e monitoramento de logs de autenticação SSH em ambiente Linux.
+Ferramenta em Python para análise e monitoramento de logs SSH em ambiente Linux.
 
 ## 🚀 Funcionalidades
 
-- Detecção de tentativas de brute force
-- Identificação de usuários inválidos
-- Monitoramento em tempo real (journalctl)
-- Análise de arquivos de log
+- 🔴 Detecção de brute force (múltiplas tentativas de login)
+- 🟡 Identificação de usuários inválidos
+- 🟢 Monitoramento em tempo real (journalctl)
+- 📊 Resumo de atividades suspeitas
 
 ## 🛠️ Tecnologias
 
@@ -18,29 +18,32 @@ Ferramenta de análise e monitoramento de logs de autenticação SSH em ambiente
 
 🎯 Objetivo
 
-Simular atividades de um analista SOC (Blue Team), identificando eventos suspeitos em logs de autenticação.
+Simular atividades de um analista SOC (Blue Team), identificando e respondendo a eventos suspeitos em logs de autenticação.
 
 📈 Aprendizados
 -Análise de logs reais
--Detecção de ataques
--Monitoramento de segurança
+-Detecção de ataques de força bruta
+-Monitoramento de segurança em tempo real
 -Automação com Python
 
-## 📷 Demonstração
-
+📷 Demonstração
 ![Demo](screenshot.png)
+![Demo](screenshot2.png)
 
 ## ▶️ Como usar
 
 ### Analisar arquivo:
 ```bash
 python3 analyzer.py --file logs.txt
-
-```bash
+```
 Monitorar em tempo real:
+```bash
 sudo python3 analyzer.py --live
+```
 📌 Exemplo de saída
-
 ```bash
 [ALERTA] Possível brute force do IP ::1 (5 tentativas)
 [ALERTA] Tentativa com usuário inválido 'admin' do IP 192.168.0.10
+```
+👨‍💻 Autor
+Gustavo Matias Silva
