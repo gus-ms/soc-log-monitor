@@ -58,7 +58,7 @@ def process_line(line):
 
         if user_match:
             user = user_match.group(1)
-            if user == "invalid":
+            if "invalid" in line.lower():
                 invalid_users[user] += 1
 
     # Usuￃﾡrio invￃﾡlido
@@ -73,8 +73,9 @@ def process_line(line):
             print(f"{Colors.YELLOW}[SUSPEITO]{Colors.RESET} Usuￃﾡrio invￃﾡlido '{user}' do IP {ip}")
 
     # ALERTA mￃﾺltiplos IPs (ataque distribuￃﾭdo)
-    if len(failed_logins) >= 3:
+    if len(failed_logins) >= 3 and not distributed_alerted:
         print(f"{Colors.RED}[CRￃﾍTICO]{Colors.RESET} Possￃﾭvel ataque distribuￃﾭdo detectado!")
+        distributed_alerted = True
 
 # Analisar arquivo
 
