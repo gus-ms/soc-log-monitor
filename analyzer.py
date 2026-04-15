@@ -2,8 +2,12 @@ import re
 import argparse
 from collections import defaultdict
 import subprocess
+import json
+import time
+from datetime import datetime
 
-# Cores no terminal
+# Cores
+
 class Colors:
     RED = "\033[91m"
     GREEN = "\033[92m"
@@ -11,8 +15,13 @@ class Colors:
     BLUE = "\033[94m"
     RESET = "\033[0m"
 
+# Dados
+
 failed_logins = defaultdict(int)
 invalid_users = defaultdict(int)
+timestamps = defaultdict(list)
+
+# Banner
 
 def banner():
     print(f"""
@@ -23,7 +32,11 @@ def banner():
 {Colors.RESET}
 """)
 
+# Processamento de linha
+
 def process_line(line):
+    global last_alert
+
     # Falha de login
     if "Failed password" in line:
         ip_match = re.search(r'from (\S+)', line)
@@ -32,16 +45,23 @@ def process_line(line):
         if ip_match:
             ip = ip_match.group(1)
             failed_logins[ip] += 1
+            timestamps[ip].append(time.time())
 
+            # ALERTA brute force
             if failed_logins[ip] >= 3:
                 print(f"{Colors.RED}[ALERTA]{Colors.RESET} Brute force do IP {ip} ({failed_logins[ip]} tentativas)")
+
+            # ALERTA comportamento rￃﾡpido (ataque em curto tempo)
+            if len(timestamps[ip]) >= 5:
+                if timestamps[ip][-1] - timestamps[ip][0] < 10:
+                    print(f"{Colors.RED}[CRￃﾍTICO]{Colors.RESET} Ataque rￃﾡpido detectado do IP {ip}")
 
         if user_match:
             user = user_match.group(1)
             if user == "invalid":
                 invalid_users[user] += 1
 
-    # Usuário inválido
+    # Usuￃﾡrio invￃﾡlido
     if "Invalid user" in line:
         user_match = re.search(r'Invalid user (\S+)', line)
         ip_match = re.search(r'from (\S+)', line)
@@ -50,7 +70,13 @@ def process_line(line):
             user = user_match.group(1)
             ip = ip_match.group(1)
 
-            print(f"{Colors.YELLOW}[SUSPEITO]{Colors.RESET} Usuário inválido '{user}' do IP {ip}")
+            print(f"{Colors.YELLOW}[SUSPEITO]{Colors.RESET} Usuￃﾡrio invￃﾡlido '{user}' do IP {ip}")
+
+    # ALERTA mￃﾺltiplos IPs (ataque distribuￃﾭdo)
+    if len(failed_logins) >= 3:
+        print(f"{Colors.RED}[CRￃﾍTICO]{Colors.RESET} Possￃﾭvel ataque distribuￃﾭdo detectado!")
+
+# Analisar arquivo
 
 def analyze_file(file_path):
     banner()
@@ -61,6 +87,8 @@ def analyze_file(file_path):
             process_line(line)
 
     summary()
+
+# Monitorar tempo real
 
 def analyze_live():
     banner()
@@ -75,6 +103,8 @@ def analyze_live():
 
     for line in process.stdout:
         process_line(line)
+        
+# Resumo final
 
 def summary():
     print(f"\n{Colors.BLUE}========== RESUMO =========={Colors.RESET}")
@@ -85,10 +115,27 @@ def summary():
     if not failed_logins:
         print(f"{Colors.GREEN}Nenhuma atividade suspeita detectada.{Colors.RESET}")
 
+# Exportar relatￃﾳrio
+
+def export_report():
+    report = {
+        "generated_at": str(datetime.now()),
+        "failed_logins": dict(failed_logins),
+        "invalid_users": dict(invalid_users)
+    }
+
+    with open("report.json", "w") as f:
+        json.dump(report, f, indent=4)
+
+    print(f"{Colors.BLUE}[+] Relatￃﾳrio exportado para report.json{Colors.RESET}")
+
+# Main
+
 def main():
     parser = argparse.ArgumentParser(description="SOC Log Monitor")
     parser.add_argument("--file", help="Analisar arquivo de log")
     parser.add_argument("--live", action="store_true", help="Monitorar em tempo real")
+    parser.add_argument("--export", action="store_true", help="Exportar relatￃﾳrio JSON")
 
     args = parser.parse_args()
 
@@ -98,6 +145,9 @@ def main():
         analyze_live()
     else:
         print("Use --file <arquivo> ou --live")
+
+    if args.export:
+        export_report()
 
 if __name__ == "__main__":
     main()
