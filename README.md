@@ -31,7 +31,8 @@ Simular atividades de um analista SOC (Blue Team), identificando e respondendo a
 
 ![Demo](screenshot.jpg)
 
-- Relatório 
+- Relatório
+  
 ![Demo](screenshot-relatorio.jpg)
 
 ## ▶️ Como usar
