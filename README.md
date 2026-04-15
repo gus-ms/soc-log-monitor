@@ -21,10 +21,10 @@ Ferramenta em Python para análise e monitoramento de logs SSH em ambiente Linux
 Simular atividades de um analista SOC (Blue Team), identificando e respondendo a eventos suspeitos em logs de autenticação.
 
 📈 Aprendizados
--Análise de logs reais
--Detecção de ataques de força bruta
--Monitoramento de segurança em tempo real
--Automação com Python
+- Análise de logs reais
+- Detecção de ataques de força bruta
+- Monitoramento de segurança em tempo real
+- Automação com Python
 
 📷 Demonstração
 
