@@ -27,8 +27,8 @@ Simular atividades de um analista SOC (Blue Team), identificando e respondendo a
 -Automação com Python
 
 📷 Demonstração
-![Demo](screenshot.png)
-![Demo](screenshot2.png)
+
+![Demo](screenshot.jog)
 
 ## ▶️ Como usar
 
