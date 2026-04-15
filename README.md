@@ -27,12 +27,16 @@ Simular atividades de um analista SOC (Blue Team), identificando e respondendo a
 - Automação com Python
 
 📷 Demonstração
+- Monitoramento em tempo real
 
 ![Demo](screenshot.jpg)
 
+- Relatório 
+![Demo](screenshot-relatorio.jpg)
+
 ## ▶️ Como usar
 
-### Analisar arquivo:
+### Gerar relatório:
 ```bash
 python3 analyzer.py --file logs.txt
 ```
@@ -45,5 +49,7 @@ sudo python3 analyzer.py --live
 [ALERTA] Possível brute force do IP ::1 (5 tentativas)
 [ALERTA] Tentativa com usuário inválido 'admin' do IP 192.168.0.10
 ```
+
 👨‍💻 Autor
+
 Gustavo Matias Silva
