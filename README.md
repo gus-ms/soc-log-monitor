@@ -28,7 +28,7 @@ Simular atividades de um analista SOC (Blue Team), identificando e respondendo a
 
 📷 Demonstração
 
-![Demo](screenshot.jog)
+![Demo](screenshot.jpg)
 
 ## ▶️ Como usar
 
